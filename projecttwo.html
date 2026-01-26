@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Custom Phone Controlled Mini-Racecar</title>
+
+  <style>
+    :root {
+      --bg: #0b0b0b;
+      --text: #ffffff;
+      --muted: #b0b0b0;
+      --accent: #b08d57;
+      --border: #1f1f1f;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    section {
+      max-width: 1000px;
+      margin: auto;
+      padding: 5rem 2rem;
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 5vw, 3.2rem);
+      margin-bottom: 2rem;
+      color: var(--accent);
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      margin-top: 2.5rem;
+      margin-bottom: 0.8rem;
+      color: var(--text);
+    }
+
+    p {
+      color: var(--muted);
+      max-width: 800px;
+    }
+
+    /* Image placeholders */
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2.5rem;
+      margin: 3rem 0;
+    }
+
+    .image-card {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: #0e0e0e;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.3s ease;
+    }
+
+    .image-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 15px 35px rgba(176, 141, 87, 0.15);
+      transform: translateY(-4px);
+    }
+
+    .image-card img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      display: block;
+      flex-shrink: 0;
+    }
+
+    .image-card figcaption {
+      padding: 1.2rem;
+      font-size: 0.95rem;
+      color: var(--text);
+      background: #0b0b0b;
+      border-top: 1px solid var(--border);
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .image-placeholder {
+      height: 260px;
+      border: 1px dashed var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+      background: linear-gradient(135deg, #1a1a1a, #0e0e0e);
+    }
+  </style>
+</head>
+
+<body>
+
+  <section>
+    <h1>Custom Phone Controlled Mini-Racecar</h1>
+
+    <!-- IMAGE PLACEHOLDERS -->
+    <div class="image-grid">
+      <figure class="image-card">
+        <img src="img4.png" alt="Prototype Cart">
+        <figcaption>Prototype / Cart</figcaption>
+      </figure>
+      <figure class="image-card">
+        <img src="img2.png" alt="Design Testing">
+        <figcaption>Demo</figcaption>
+      </figure>
+    </div>
+
+<h2>Engineering</h2>
+<p>
+  3D printed and tested the entire chassis and drivetrain, implementing a 5:1 gearing
+  ratio and a custom steering configuration with a dual-motor setup to improve torque
+  performance and low-speed control. Iteratively refined the mechanical layout to
+  balance power delivery, stability, and maneuverability.
+</p>
+
+<h2>Integration</h2>
+<p>
+  Developed a custom control interface using the Blynk platform to enable remote
+  operation of the motors and servo. Integrated software and hardware systems to
+  achieve precise steering response and controlled power delivery through a
+  phone-based interface.
+</p>
+
+<h2>Constraints</h2>
+<p>
+  Built the vehicle using existing motors and a servo, designing all mechanical and
+  electrical systems around fixed components. Constrained the entire car within a
+  10-inch footprint while achieving a 65-degree turning radius, requiring compact
+  packaging and careful system integration.
+</p>
+
+
+  </section>
+
+</body>
+</html>
