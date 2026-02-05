@@ -6,177 +6,80 @@
   <title>Custom Phone Controlled Mini-Racecar</title>
 
   <style>
-    :root {
-      --bg: #0b0b0b;
-      --text: #ffffff;
-      --muted: #b0b0b0;
-      --accent: #b08d57;
-      --border: #1f1f1f;
+    :root{
+      --bg:#ffffff;
+      --surface:#ffffff;
+      --surface-2:#f8fafc;
+      --text:#0f172a;
+      --muted:#475569;
+      --accent:#b08d57;
+      --border:#e2e8f0;
+      --radius:18px;
+      --shadow:0 18px 55px rgba(2,6,23,.10);
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    *{margin:0;padding:0;box-sizing:border-box;font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial;}
+    body{
+      color:var(--text);
+      line-height:1.65;
+      background:
+        radial-gradient(1200px 600px at 15% -10%, rgba(176,141,87,.18), transparent 60%),
+        radial-gradient(900px 500px at 95% 10%, rgba(15,23,42,.06), transparent 55%),
+        var(--bg);
+    }
+    a{color:inherit}
+
+    /* Top bar */
+    header{
+      position:sticky; top:0; z-index:20;
+      background:rgba(255,255,255,.85);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(226,232,240,.9);
+    }
+    .nav{
+      max-width:1050px; margin:0 auto;
+      padding:1rem 1.25rem;
+      display:flex; align-items:center; justify-content:space-between;
+      gap:1rem;
+    }
+    .brand{font-weight:800; letter-spacing:.2px;}
+    .nav a{
+      text-decoration:none;
+      color:var(--muted);
+      font-weight:800;
+      padding:.45rem .7rem;
+      border-radius:12px;
+      transition:.18s ease;
+    }
+    .nav a:hover{
+      background:rgba(176,141,87,.10);
+      color:var(--text);
     }
 
-    body {
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
+    /* Page layout */
+    main{max-width:1050px; margin:0 auto; padding:3.5rem 1.25rem 5rem;}
+    .hero{
+      padding:2.5rem 2.25rem;
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      background:rgba(255,255,255,.92);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      position:relative;
     }
-
-    section {
-      max-width: 1000px;
-      margin: auto;
-      padding: 5rem 2rem;
+    .kicker{
+      display:inline-flex; align-items:center; gap:.5rem;
+      font-size:.85rem; font-weight:900;
+      color:var(--muted);
+      background:rgba(176,141,87,.10);
+      border:1px solid rgba(176,141,87,.25);
+      padding:.35rem .65rem;
+      border-radius:999px;
+      width:fit-content;
     }
-
-    h1 {
-      font-size: clamp(2.4rem, 5vw, 3.2rem);
-      margin-bottom: 2rem;
-      color: var(--accent);
+    h1{
+      font-size:clamp(2.1rem,4.5vw,3.2rem);
+      letter-spacing:-.02em;
+      line-height:1.08;
+      margin:.9rem 0 .8rem;
     }
-
-    h2 {
-      font-size: 1.4rem;
-      margin-top: 2.5rem;
-      margin-bottom: 0.8rem;
-      color: var(--text);
-    }
-
-    p {
-      color: var(--muted);
-      max-width: 800px;
-    }
-
-    
-
-    /* Image placeholders */
-    .image-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 2.5rem;
-      margin: 3rem 0;
-    }
-
-    .image-card {
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid var(--border);
-      background: #0e0e0e;
-      display: flex;
-      flex-direction: column;
-      transition: all 0.3s ease;
-    }
-
-    .image-card:hover {
-      border-color: var(--accent);
-      box-shadow: 0 15px 35px rgba(176, 141, 87, 0.15);
-      transform: translateY(-4px);
-    }
-
-    .image-card img {
-      width: 100%;
-      height: 280px;
-      object-fit: cover;
-      display: block;
-      flex-shrink: 0;
-    }
-
-    .image-card figcaption {
-      padding: 1.2rem;
-      font-size: 0.95rem;
-      color: var(--text);
-      background: #0b0b0b;
-      border-top: 1px solid var(--border);
-      flex-grow: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-    }
-
-    .image-placeholder {
-      height: 260px;
-      border: 1px dashed var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--muted);
-      font-size: 0.9rem;
-      background: linear-gradient(135deg, #1a1a1a, #0e0e0e);
-    }
-
-
-/* Video card (YouTube embed) */
-.video-wrap {
-  width: 100%;
-  height: 280px;      /* matches your image height */
-  background: #000;
-}
-
-.video-wrap iframe {
-  width: 100%;
-  height: 100%;
-  border: 0;
-  display: block;
-}
-
-  </style>
-</head>
-
-<body>
-
-  <section>
-    <h1>Custom Phone Controlled Mini-Racecar</h1>
-
-    <!-- IMAGE PLACEHOLDERS -->
-    <div class="image-grid">
-      <figure class="image-card">
-        <img src="img4.png" alt="Prototype Cart">
-        <figcaption>Prototype / Cart</figcaption>
-      </figure>
-      <figure class="image-card">
-        <div class="video-wrap">
-          <iframe
-            src="https://www.youtube.com/embed/FaSZxnzINok?rel=0"
-            title="Racecar Demo Video"
-            loading="lazy"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen></iframe>
-        </div>
-        <figcaption>Demo Video</figcaption>
-      </figure>
-    </div>
-
-<h2>Engineering</h2>
-<p>
-  3D printed and tested the entire chassis and drivetrain, implementing a 5:1 gearing
-  ratio and a custom steering configuration with a dual-motor setup to improve torque
-  performance and low-speed control. Iteratively refined the mechanical layout to
-  balance power delivery, stability, and maneuverability.
-</p>
-
-<h2>Integration</h2>
-<p>
-  Developed a custom control interface using the Blynk platform to enable remote
-  operation of the motors and servo. Integrated software and hardware systems to
-  achieve precise steering response and controlled power delivery through a
-  phone-based interface.
-</p>
-
-<h2>Constraints</h2>
-<p>
-  Built the vehicle using existing motors and a servo, designing all mechanical and
-  electrical systems around fixed components. Constrained the entire car within a
-  10-inch footprint while achieving a 65-degree turning radius, requiring compact
-  packaging and careful system integration.
-</p>
-
-
-  </section>
-
-</body>
-</html>
